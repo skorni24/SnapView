@@ -11,7 +11,7 @@ function App() {
       <Route path="/" exact>
         <Users />
       </Route>  
-      <Route path="/123" exact>
+      <Route path="/Srinivas" exact>
         <NewPlace />
       </Route>
       <Redirect to="/" />
