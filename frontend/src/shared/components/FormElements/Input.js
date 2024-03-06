@@ -24,7 +24,8 @@ switch (action.type) {
 
 const Input = (props) => {
   const [inputState, dispatch] = useReducer(inputReducer, {
-    value: "",
+    value:props.value ||  "",
+    isTouched: false,
     isValid: false,
   });
 
