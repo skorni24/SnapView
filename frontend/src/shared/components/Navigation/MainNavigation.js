@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import NavLinks from "./NavLinks";
 import SideDrawer from "./SideDrawer";
 import Backdrop from "../UIElements/Backdrop";
+//import logo from "./1289651.jpg";
 
 const MainNavigation = (props) => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
@@ -34,7 +35,10 @@ const MainNavigation = (props) => {
           <span />
         </button>
         <h1 className="main-navigation__title">
-          <Link to="/">SnapView</Link>
+          {/* <Link to="/">
+            <img src={logo} alt="logo" style={{height: '50px', width: '50px'}} />
+          </Link> */}
+          <Link to="/" >SnapView</Link>
         </h1>
         <nav className="main-navigation__header-nav">
           <NavLinks />
