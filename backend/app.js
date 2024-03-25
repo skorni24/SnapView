@@ -1,8 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-
+const mongoose = require("mongoose");
+// const username = encodeURIComponent("srinivas");
+// const password = encodeURIComponent("srinu1973");
 const placesRoutes = require("./Routes/places-routes");
-const userRoutes=require('./Routes/users-routes');
+const userRoutes = require("./Routes/users-routes");
 
 const app = express();
 app.use(bodyParser.json()); // => middleware which parses incoming requests with JSON payloads and displays them in the console
@@ -22,4 +24,13 @@ app.use((error, req, res, next) => {
   res.json({ message: error.message || "An unknown error occurred!" });
 });
 
-app.listen(6969);
+mongoose
+  .connect(
+    "mongodb+srv://srinivas:srinu1973@cluster0.zlp7yi4.mongodb.net/places?retryWrites=true&w=majority&appName=cluster0"
+  )
+  .then(() => {
+    app.listen(3000);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
