@@ -1,9 +1,9 @@
 import React from "react";
 
 import Card from "../../shared/components/UIElements/Card";
-import "./PlaceList.css";
 import PlaceItem from "./PlaceItem";
 import Button from "../../shared/components/FormElements/Button";
+import "./PlaceList.css";
 
 const PlaceList = (props) => {
   if (props.items.length === 0) {
@@ -14,7 +14,7 @@ const PlaceList = (props) => {
           <Button to="/places/new">Share Place</Button>
         </Card>
       </div>
-    ); // Add closing curly brace here
+    );
   }
 
   return (
@@ -27,8 +27,9 @@ const PlaceList = (props) => {
           title={place.title}
           description={place.description}
           address={place.address}
-          createrId={place.creater}
+          creatorId={place.creator}
           coordinates={place.location}
+          onDelete={props.onDeletePlace}
         />
       ))}
     </ul>
