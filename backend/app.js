@@ -5,9 +5,21 @@ const mongoose = require("mongoose");
 // const password = encodeURIComponent("srinu1973");
 const placesRoutes = require("./Routes/places-routes");
 const userRoutes = require("./Routes/users-routes");
+const cors = require("cors");
 
 const app = express();
 app.use(bodyParser.json()); // => middleware which parses incoming requests with JSON payloads and displays them in the console
+
+app.use(cors());
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+//   );
+//   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+//   next();
+// });
 
 app.use("/api/places", placesRoutes); // => /api/places...
 app.use("/api/users", userRoutes);
@@ -26,10 +38,10 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://srinivas:srinu1973@cluster0.zlp7yi4.mongodb.net/places?retryWrites=true&w=majority&appName=cluster0"
+    "mongodb+srv://srinivas:srinu1973@cluster0.zlp7yi4.mongodb.net/mern?retryWrites=true&w=majority&appName=cluster0"
   )
   .then(() => {
-    app.listen(3000);
+    app.listen(5000);
   })
   .catch((err) => {
     console.log(err);

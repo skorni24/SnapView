@@ -9,7 +9,7 @@ const UsersList = (props) => {
       <Card>
         <div className="center">
           <h2>No users found</h2>
-        </div>  
+        </div>
       </Card>
     );
   }
@@ -22,7 +22,7 @@ const UsersList = (props) => {
           id={user.id}
           image={user.image}
           name={user.name}
-          placeCount={user.places}
+          placeCount={user.places.length}
         />
       ))}
     </ul>
@@ -30,4 +30,3 @@ const UsersList = (props) => {
 };
 
 export default UsersList;
-
