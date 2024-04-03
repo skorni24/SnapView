@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const fs = require("fs");
 const mongoose = require("mongoose");
 // const username = encodeURIComponent("srinivas");
 // const password = encodeURIComponent("srinu1973");
@@ -10,7 +11,9 @@ const cors = require("cors");
 const app = express();
 app.use(bodyParser.json()); // => middleware which parses incoming requests with JSON payloads and displays them in the console
 
-app.use(cors());
+app.use("/uploads/images", express.static("uploads/images")); // => /uploads/images => http://localhost:5000/uploads/images
+
+app.use(cors()); //cors- cross origin resource sharing
 // app.use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
 //   res.setHeader(
@@ -29,6 +32,11 @@ app.use((req, res, next) => {
   throw error;
 });
 app.use((error, req, res, next) => {
+  if (req.file) {
+    fs.unlink(req.file.path, (err) => {
+      console.log(err);
+    });
+  }
   if (res.headerSent) {
     return next(error);
   }
