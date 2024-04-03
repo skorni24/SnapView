@@ -11,7 +11,11 @@
 }
 
 .nav-links li {
-  margin: 1rem;
+  margin: 2rem;
+}
+#auth{
+  margin-right: 50px;
+
 }
 
 .nav-links a {
